@@ -21,4 +21,9 @@ sxhkd &
 # generate the updates
 bash $HOME/.config/bspwm/scripts/gen-updates.sh &
 
-# notify-send "Welcome Lord $USER"
+# spawn polybar
+polylaunchfile=$HOME/.config/polybar/launch.sh
+
+if test -f $polylaunchfile; then
+  bash $polylaunchfile
+fi
