@@ -20,7 +20,7 @@ fi
 
 # assign the workspaces with bspc
 assign_workspaces () {
-  bspc monitor $monitor -d I II III IV V
+  bspc monitor $monitor -d I II III IV V VI VII VIII IX
   if [[ $monitor == "$EXTERNAL_MONITOR_NAME" ]]; then
     bspc monitor $ONLY_ONE_MONITOR_NAME -d X
   fi

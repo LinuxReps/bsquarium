@@ -3,8 +3,8 @@
 # autostart
 bash $HOME/.config/bspwm/scripts/autostart.sh
 
-# uncomment to use monitor setup
-# bash $HOME/.config/bspwm/scripts/monitor.sh
+# use 1 to use the scripts/monitor.sh file (configure it file editing it!)
+MONITOR_SUPPORT=0
 
 function setopt () {
   bspc config "$1" "$2"
@@ -16,8 +16,8 @@ setopt window_gap 12
 
 # behaviour stuff
 setopt split_ratio 0.52
-setopt borderless_monocle true
-setopt gapless_monocle true
+setopt borderless_monocle false
+setopt gapless_monocle false
 setopt single_monocle false
 
 # pointer
@@ -27,3 +27,10 @@ setopt pointer_follows_monitor true
 
 # plank compatibility
 bspc rule -a Plank layer=above manage=on border=off
+
+# monitor
+if [[ $MONITOR_SUPPORT == 1 ]]; then
+  bash $HOME/.config/bspwm/scripts/monitor.sh
+else
+  bspc monitor primary -d I II III IV V VI VII VIII IX
+fi

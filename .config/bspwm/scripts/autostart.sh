@@ -13,7 +13,7 @@ picom -b
 dunst &
 
 # Wallpaper
-feh --bg-fill $HOME/.config/wallpapers/aquarium.png
+feh --bg-fill $HOME/.config/wallpapers/aquarium/shades.png
 
 # don't remove this please
 sxhkd &
