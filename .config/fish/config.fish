@@ -8,7 +8,7 @@ alias la='exa --icons -la'
 alias tree='exa --icons --tree'
 alias cat='bat --theme base16 --paging=never --style=plain'
 alias g='copier -c github_token 2>&1 > /dev/null && git'
-alias clear='clear && pfetch'
+alias clear='clear && ~/.config/color-scripts/launch.sh'
 
 # color
 set fish_color_normal brwhite
@@ -27,4 +27,4 @@ set fish_color_quote brgreen
 starship init fish | source
 
 # startup
-pfetch
+~/.config/color-scripts/launch.sh
