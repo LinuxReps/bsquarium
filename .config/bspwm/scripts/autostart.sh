@@ -9,7 +9,7 @@
 xsetroot -cursor_name left_ptr
 picom -b
 
-# notification manager (I include configuration for dunst)
+# notification manager
 dunst &
 
 # Wallpaper
@@ -27,3 +27,7 @@ polylaunchfile=$HOME/.config/polybar/launch.sh
 if test -f $polylaunchfile; then
   bash $polylaunchfile
 fi
+
+# eww
+eww daemon
+eww open-many settings-panel
