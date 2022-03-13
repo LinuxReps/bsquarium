@@ -183,6 +183,7 @@ generate_window_list() {
       discord) w_name='ﭮ' ;;
       figma-linux) w_name='' ;;
       Viewnior) w_name='' ;;
+      gnome) w_name='' ;;
       *) w_name="$cls" ;;
       esac
       ;;
