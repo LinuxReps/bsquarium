@@ -180,9 +180,9 @@ generate_window_list() {
       SimpleScreenRecorder) w_name='' ;;
       Blue-recorder) w_name='' ;;
       Firefox) w_name='' ;;
-      Desktop) w_name='' ;;
       discord) w_name='ﭮ' ;;
       figma-linux) w_name='' ;;
+      Viewnior) w_name='' ;;
       *) w_name="$cls" ;;
       esac
       ;;
