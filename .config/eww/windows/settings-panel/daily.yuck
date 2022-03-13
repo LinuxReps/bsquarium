@@ -1,0 +1,25 @@
+(defpoll get-weather :interval "3600s" "~/.config/eww/scripts/daily/get-daily.sh")
+(defpoll get-weather :interval "3600s"
+  `curl https://wttr.in/Spain?format=3`)
+
+(defpoll day :interval "3600s" "date +%d")
+(defpoll month :interval "3600s" "date +%b")
+
+(defwidget date[]
+  (box
+    :class "daily-date"
+    :orientation "v"
+    day
+    month))
+
+(defwidget daily[]
+  (box
+    :height 20
+    :space-evenly false
+    ; :halign "start"
+    :halign "fill"
+    :class "daily"
+    (date)
+    (box
+      :class "daily-weather"
+      get-weather)))

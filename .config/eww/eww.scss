@@ -1,0 +1,178 @@
+// gruvbox u///u
+$background:  #2C2E3E;
+$background-dark: #20202a;
+$background-light: #20202a;
+$yellow:   #E6DFB8;
+$gray-1:   #E6DFB8;
+$gray-2:   #E6DFB8;
+$primary: #B8C9EA;
+
+* {
+  border-radius: 10px;
+  font-family: "Iosevka Nerd Font";
+  font-size: 16px;
+  border: none;
+}
+
+window {
+  // background-color: $background-dark;
+  background-color: transparent;
+}
+
+.settings-panel {
+  background-color: $background-dark;
+}
+
+.daily {
+  padding: 10px;
+}
+
+.daily-date {
+  background-color: $background;
+  color: $primary;
+  padding: 10px 20px;
+}
+
+.daily-date-day {
+  color: $yellow;
+}
+
+.daily-weather {
+  background-color: $background;
+  color: $primary;
+  margin: 0 0 0 10px;
+  padding: 10px 35px;
+}
+
+
+.volume {
+  background-color: $background;
+  color: $primary;
+  margin: 10px;
+}
+
+.volume-scale trough highlight {
+  all: unset;
+  background-color: $yellow;
+  padding: 3px;
+  border-radius: inherit;
+}
+
+.volume-down, .volume-up {
+  padding: 10px 20px;
+}
+
+
+.brightness {
+  background-color: $background;
+  color: $primary;
+  margin: 10px;
+}
+
+.brightness-scale trough highlight {
+  all: unset;
+  background-color: $yellow;
+  padding: 3px;
+  border-radius: inherit;
+}
+
+.brightness-down, .brightness-up {
+  padding: 10px 20px;
+}
+
+
+
+.spotify {
+  background-color: $background;
+  color: $primary;
+  margin: 10px;
+  padding: 10px;
+}
+
+.spotify-box {
+  padding: 0 20px;
+}
+
+.spotify-text {
+  margin-left: 10px;
+}
+
+.spotify-controls button {
+  all: unset;
+  background-color: transparent;
+  border-radius: inherit;
+}
+
+
+
+.close-me {
+  all: unset;
+  background-color: transparent;
+}
+
+.close-me-container {
+  background-color: transparent;
+}
+
+
+
+.system-menu-icon {
+  all: unset;
+  background-color: transparent;
+  border-radius: inherit;
+  color: #B8C9EA;
+}
+
+
+
+.notifications {
+  background-color: $background-dark;
+  padding: 15px 0;
+}
+
+.notification-wrapper {
+  background-color: $gray-1;
+  margin: 5px 10px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.notification-title,
+.notification-content {
+  margin: 2px;
+}
+
+.notification-title {
+  margin: 0 4px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.notification-wrapper:nth-child(2n) {
+  background-color: $gray-2;
+}
+
+.notification-toggle {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-right: 20px;
+  opacity: 0.5;
+}
+
+.notification-toggle.active {
+  opacity: 1;
+}
+
+.notification-clean {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.notifications-empty {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
