@@ -4,7 +4,6 @@
 (include "./windows/settings-panel/system-menu.yuck")
 
 (defwindow settings-panel
-  :monitor 0
   :geometry (geometry :x "-1%"
             :y "7%"
             ; :width "30%"
