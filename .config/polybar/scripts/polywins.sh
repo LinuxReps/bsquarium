@@ -1,15 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 # POLYWINS
 
 # SETTINGS {{{ ---
 
-active_text_color="#B1DBA4"
-active_bg=
-active_underline="#B1DBA4"
-
-inactive_text_color="#44495e"
-inactive_bg=
-inactive_underline=
+source $HOME/.config/polybar/scripts/polywins/themes/aquarium-light.sh
 
 separator=" "
 show="icon" # options: window_title, window_class, window_classname, icon

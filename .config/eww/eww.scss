@@ -1,11 +1,5 @@
-// gruvbox u///u
-$background:  #2C2E3E;
-$background-dark: #20202a;
-$background-light: #20202a;
-$yellow:   #E6DFB8;
-$gray-1:   #E6DFB8;
-$gray-2:   #E6DFB8;
-$primary: #B8C9EA;
+// @import "./themes/aquarium-light.scss";
+@import "./themes/aquarium.scss";
 
 * {
   border-radius: 10px;
