@@ -1,0 +1,76 @@
+/*
+ * rofi themes - default
+ * colors - jellybeans
+ * mode - dark
+ * author - joni84
+ * edited by - Bleyom and AlphaTechnolog
+ * original repositorie - https://github.com/joni84/rofi
+ */
+
+configuration {
+    modi: "drun";
+    display-drun: " ";
+    drun-display-format: "{name}";
+    font: "Rubik 10";
+    show-icons: true;
+    icon-theme: "Reversal-dark";
+}
+
+* {
+    bg: #1E1E2E;
+    fg: #D9E0EE;
+    alt: #232338;
+    rad: 8px;
+
+    background-color: @bg;
+    text-color: @fg;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    padding: 3em;
+    spacing: 1em;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    border-radius: @rad;
+    background-color: @alt;
+}
+
+prompt, entry, element selected {
+    vertical-align: 0.5;
+    background-color: @alt;
+}
+
+prompt {
+   padding: 1.5%;
+   font: "feather 14";
+}
+
+entry {
+    blink: false;
+    padding: 0 1.5% 0 0;
+    placeholder: "Search through apps";
+}
+
+listview {
+    lines: 3;
+    columns: 4;
+    cycle: false;
+}
+
+element {
+    orientation: vertical;
+    padding: 1em;
+    border-radius: @rad;
+}
+
+element-text, element-icon {
+    horizontal-align: 0.5;
+    background-color: inherit;
+}
+
+element-icon { size: 48px; }
+listview, element, element selected, element-text, element-icon { cursor: pointer; }
+entry { cursor: text; }
