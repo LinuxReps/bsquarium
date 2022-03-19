@@ -94,8 +94,10 @@ check_server() {
 }
 
 install_eww_x11 () {
-  if [[ $os == 'void' ]]; then
-    cp -r ./eww-template/eww ./srcpkgs/eww
+  if [[ $os == 'Void' ]]; then
+    if ! test -d ./eww-template/eww; then
+      cp -r ./eww-template/eww ./srcpkgs/eww
+    fi
   elif [[ $os == 'Arch Linux' ]]; then
     paru -Sy eww --noconfirm
   else
@@ -104,8 +106,10 @@ install_eww_x11 () {
 }
 
 install_eww_wayland () {
-  if [[ $os == 'void' ]]; then
-    cp -r ./eww-template/eww-wayland ./srcpkgs/eww
+  if [[ $os == 'Void' ]]; then
+    if ! test -d ./eww-template/eww; then
+      cp -r ./eww-template/eww-wayland ./srcpkgs/eww
+    fi
   elif [[ $os == 'Arch Linux' ]]; then
     paru -Sy eww-wayland-git --noconfirm
   else
@@ -145,12 +149,16 @@ copy_config () {
 
 use_void () {
   info "Installing dependencies"
-  sudo xbps-install xtools feh git polybar sxhkd bspwm rofi picom dunst neofetch nerd-fonts-ttf kitty --yes
+  sudo xbps-install xtools feh git polybar sxhkd bspwm rofi picom dunst neofetch kitty exa bat fish-shell wget unzip --yes
   info "Cloning void-packages and trying to install eww"
-  git clone https://github.com/void-linux/void-packages.git void-packages
+  if ! test -d void-packages; then
+    git clone https://github.com/void-linux/void-packages.git void-packages
+  fi
   cd void-packages || exit 1
   ./xbps-src binary-bootstrap
-  git clone https://github.com/monke0192/eww-template
+  if ! test -d eww-template; then
+    git clone https://github.com/monke0192/eww-template
+  fi
   install_eww
   ./xbps-src pkg eww
   cd ..
@@ -168,7 +176,7 @@ use_arch () {
     info "Paru not found: installing!"
     install_paru
   fi
-  paru -Sy polybar git sxhkd bspwm polybar feh rofi picom dunst neofetch nerd-fonts-ttf kitty --noconfirm
+  paru -Sy polybar git sxhkd bspwm polybar feh rofi picom dunst neofetch nerd-fonts-ttf kitty bat exa fish wget unzip --noconfirm
   install_eww
   copy_config
 }
@@ -178,7 +186,7 @@ skip_auto_dependencies_installation () {
 }
 
 start_installation () {
-  if [[ $os == 'void' ]]; then
+  if [[ $os == 'Void' ]]; then
     use_void
   elif [[ $os == 'Arch Linux' ]]; then
     use_arch
@@ -187,10 +195,31 @@ start_installation () {
   fi
 }
 
+install_fonts () {
+  font_name='Iosevka'
+  font_url='https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Iosevka.zip'
+  info "Downloading font '$font_name' from '$font_url'"
+  wget "$font_url"
+  if ! test -f "$font_name.zip"; then
+    error "Cannot download font... try manually downloading it from the url"
+  fi
+  mkdir -p ./$font_name
+  mv "$font_name.zip" $font_name
+  cd $font_name
+  unzip "$font_name.zip"
+  sudo mv ./*.ttf /usr/share/fonts
+  cd ../
+  rm -rf ./$font_name
+  info "Reloading fonts cache"
+  fc-cache -r
+  success "Font downloaded & installed successfully"
+}
+
 main () {
   banner
   check_deps
   start_installation
+  install_fonts
 }
 
-# main
+main
