@@ -149,7 +149,7 @@ copy_config () {
 
 use_void () {
   info "Installing dependencies"
-  sudo xbps-install xtools feh git polybar sxhkd bspwm rofi picom dunst neofetch kitty exa bat fish-shell wget unzip --yes
+  sudo xbps-install xtools feh git polybar sxhkd bspwm rofi picom dunst neofetch kitty exa bat fish-shell wget unzip psmisc --yes
   info "Cloning void-packages and trying to install eww"
   if ! test -d void-packages; then
     git clone https://github.com/void-linux/void-packages.git void-packages
