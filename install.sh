@@ -215,11 +215,18 @@ install_fonts () {
   success "Font downloaded & installed successfully"
 }
 
+configure_shell () {
+  info "Setting fish as default shell"
+  sudo usermod --shell $(which fish) $(whoami)
+  success "Done"
+}
+
 main () {
   banner
   check_deps
   start_installation
   install_fonts
+  configure_shell
 }
 
 main
