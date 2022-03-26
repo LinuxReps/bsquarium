@@ -45,8 +45,12 @@ function launch_cs ()
 end
 
 function get_cs ()
-  if not test -d $HOME/.config/color-scripts then
+  if not test -d $HOME/.config/color-scripts
     echo "get_cs: $HOME/.config/color-scripts does not exists"
   end
   ls -la $HOME/.config/color-scripts
 end
+export PATH="$PATH:$HOME/.spicetify"
+
+# comment to disable vi mode
+fish_vi_key_bindings
